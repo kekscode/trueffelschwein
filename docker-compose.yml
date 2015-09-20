@@ -1,0 +1,16 @@
+crawler:
+  build: ./crawler
+  dockerfile: Dockerfile
+  container_name: "crawler"
+  environment:
+    CRAWL_URLS: "http://www.golem.de|http://www.heise.de"
+    CRAWL_DOMAINS: "golem.de|heise.de"
+  links:
+    - crawlerstore
+
+crawlerstore:
+  image: mongo
+  container_name: "crawlerstore"
+  command: mongod --smallfiles
+  ports:
+    - "27017:27017"
