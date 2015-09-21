@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import os
+import urlparse
 
 from scrapy.spiders import CrawlSpider, Rule
 from crawler.items import CrawlerItem
@@ -18,10 +19,8 @@ class MeepmeepSpider(CrawlSpider):
     start_urls = tuple(os.environ.get('CRAWL_URLS').split('|'))
 
     rules = (
-        # Extract links matching .html and parse them
-        # with the spider's method parse_page
-        #Rule(LinkExtractor(allow=(r'\.html'),), follow=True),
-        Rule(LinkExtractor(allow=(r'\.html', ),), callback='parse_page', follow=True),
+        # Extract and follow links:
+        Rule(LinkExtractor(allow=(r'.*', ),), callback='parse_page', follow=True),
     )
 
     def parse_page(self, response):

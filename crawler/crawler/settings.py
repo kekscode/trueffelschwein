@@ -9,10 +9,15 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+import os
+
+
 BOT_NAME = 'crawler'
 
 SPIDER_MODULES = ['crawler.spiders']
 NEWSPIDER_MODULE = 'crawler.spiders'
+
+LOG_LEVEL = os.environ.get('CRAWLER_LOG_LEVEL')
 
 ITEM_PIPELINES = ['crawler.pipelines.MongoDBPipeline', ]
 

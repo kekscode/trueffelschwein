@@ -1,10 +1,10 @@
 crawler:
   build: ./crawler
   dockerfile: Dockerfile
-  environment:
-    PYTHONUNBUFFERED: "1"
-    CRAWL_URLS: "http://www.golem.de|http://www.heise.de"
-    CRAWL_DOMAINS: "golem.de|heise.de"
+  env_file:
+    # configuration is managed by environment variables
+    - ./config/crawler.env
+    - ./config/python.env
   links:
     - crawlerstore
 
