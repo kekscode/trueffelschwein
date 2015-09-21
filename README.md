@@ -3,6 +3,7 @@
 An example how to set up a Docker based web crawling infrastructure
 using Scrapy and MongoDB.
 
+
 This requires:
 
 * `docker`
@@ -12,9 +13,17 @@ This requires:
 
 `$> docker-compose build`
 
+## Configure
+
+Edit the files in `./config/*.env` to suit your needs
+
 ## Run on Dockerhost
 
+Start the whole system with:
+
 `$> docker-compose up`
+
+and check the results in your MongoDB container at `<dockerhost>:27017`.
 
 ## Scale crawler containers
 
