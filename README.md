@@ -6,8 +6,10 @@ using Scrapy and MongoDB.
 
 This requires:
 
-* `docker`
-* `docker-compose`
+* A dockerhost
+* The `docker` command in order to talk to your dockerhost
+* The `docker-compose` command
+* This repository ;-)
 
 ## Setup
 
